@@ -10,7 +10,7 @@ def shell(cmd):
     except subprocess.CalledProcessError as e:
         return e.output.decode('latin-1')
 
-app = func.FunctionApp()
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 @app.route("hello")
 def http_trigger(req):
